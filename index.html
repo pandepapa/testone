@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUNGI-PORK | Nutrición Porcina de Alta Tecnología</title>
+    <style>
+        :root {
+            --verde-primario: #1B4332; /* Sostenibilidad y TecNM */
+            --dorado-accent: #D4A017;  /* Calidad Premium y Biomasa Fúngica */
+            --gris-claro: #F4F7F6;
+            --blanco: #FFFFFF;
+            --negro-texto: #2D2D2D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--blanco);
+            color: var(--negro-texto);
+            line-height: 1.6;
+        }
+
+        /* Navegación */
+        nav {
+            background-color: var(--verde-primario);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo-nav {
+            color: var(--dorado-accent);
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li { margin-left: 20px; }
+
+        .nav-links a {
+            color: var(--blanco);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--dorado-accent); }
+
+        /* HERO SECTION - REDISEÑADA PARA NO ENCIMAR TEXTO */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 85vh;
+            padding: 60px 10%;
+            gap: 50px;
+            flex-wrap: wrap; /* Ajuste automático para móviles */
+            background: linear-gradient(135deg, var(--blanco) 60%, var(--gris-claro) 100%);
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 320px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            max-height: 500px;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 320px;
+        }
+
+        .badge-folio {
+            display: inline-block;
+            background: rgba(27, 67, 50, 0.1);
+            color: var(--verde-primario);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            color: var(--verde-primario);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+            color: #444;
+            max-width: 550px;
+        }
+
+        .cta-container {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-main {
+            background-color: var(--dorado-accent);
+            color: var(--verde-primario);
+            padding: 16px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--verde-primario);
+            border: 2px solid var(--verde-primario);
+            padding: 14px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(212,160,23,0.3); }
+
+        /* SECCIÓN CARACTERÍSTICAS */
+        .section { padding: 80px 10%; }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--verde-primario);
+            font-size: 2.2rem;
+        }
+
+        .grid-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--blanco);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-bottom: 4px solid var(--dorado-accent);
+            text-align: center;
+        }
+
+        .feature-card h3 { color: var(--verde-primario); margin-bottom: 15px; }
+
+        /* TABLA DE PRECIOS */
+        .pricing { background-color: var(--gris-claro); }
+
+        .pricing-grid {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .price-card {
+            background: var(--blanco);
+            width: 320px;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .price-card.featured {
+            border: 2px solid var(--dorado-accent);
+            transform: scale(1.05);
+        }
+
+        .price-card .amount {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+            color: var(--negro-texto);
+        }
+
+        footer {
+            background-color: var(--verde-primario);
+            color: var(--blanco);
+            padding: 50px 10%;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero { text-align: center; padding-top: 40px; }
+            .hero-text h1 { font-size: 2.2rem; }
+            .cta-container { justify-content: center; flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo-nav">FUNGI-PORK</a>
+        <ul class="nav-links">
+            <li><a href="#beneficios">Beneficios</a></li>
+            <li><a href="#precios">Precios</a></li>
+            <li><a href="#tecnologia">Tecnología</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-image">
+            <img src="LOGO CON K.png" alt="FUNGI-PORK Logo Oficial">
+        </div>
+
+        <div class="hero-text">
+            <span class="badge-folio">Folio InnovaTecNM 69158-17</span>
+            <h1>Innovación que <br>Alimenta el Futuro</h1>
+            <p>Transformamos residuos agroindustriales en un pellet funcional de alta proteína para lechones, reduciendo costos operativos y mejorando la salud animal.</p>
+            <div class="cta-container">
+                <a href="#precios" class="btn-main">Ver Tarifas 2026</a>
+                <a href="#tecnologia" class="btn-outline">Memoria Técnica</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="beneficios" class="section">
+        <h2 class="section-title">Valorización de Biomasa Fúngica</h2>
+        <div class="grid-features">
+            <div class="feature-card">
+                <h3>Circularidad Real</h3>
+                <p>Valorizamos bagazo de agave mezcalero y borra de café mediante fermentación en estado sólido.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Salud Intestinal</h3>
+                <p>Contiene beta-glucanos fúngicos con potencial inmunomodulador para reducir el uso de antibióticos.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Ahorro Directo</h3>
+                <p>Sustitución parcial de pasta de soya que permite precios competitivos frente a importados.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="precios" class="section pricing">
+        <h2 class="section-title">Comercialización Directa</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h4>Menudeo</h4>
+                <span class="amount">$1,300 <small>MXN</small></span>
+                <p>Saco de 20kg (Tarifa A)</p>
+                <p style="margin-top:15px; font-size:0.85rem; color:#666;">Ideal para pequeños productores familiares.</p>
+            </div>
+            <div class="price-card featured">
+                <h4>Mayoreo</h4>
+                <span class="amount">$1,160 <small>MXN</small></span>
+                <p>Desde 6 sacos (Tarifa B)</p>
+                <p style="margin-top:15px; font-size:0.85rem; color:#666;">Nuestra opción más vendida para granjas asociativas.</p>
+            </div>
+            <div class="price-card">
+                <h4>Distribución</h4>
+                <span class="amount">$1,040 <small>MXN</small></span>
+                <p>Desde 12 sacos (Tarifa C)</p>
+                <p style="margin-top:15px; font-size:0.85rem; color:#666;">Para la red AGLP-09-87 y distribuidores.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="tecnologia" class="section">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <h2 class="section-title">Ciencia Detrás del Producto</h2>
+            <p>Desarrollado bajo tecnología **SIAF** en el IT Valle de Morelia, el pellet de 6mm cumple con las normativas SENASICA para consumo animal seguro.</p>
+            <p style="margin-top: 25px; font-weight: bold; color: var(--verde-primario);">PROYECTO AUDITABLE Y TRAZABLE - TRL 5-6</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Tecnológico Nacional de México | Instituto Tecnológico del Valle de Morelia</p>
+        <p style="margin: 15px 0; opacity: 0.8;">Cumbre Nacional de Desarrollo Tecnológico, Emprendimiento e Innovación - InnovaTecNM 2026</p>
+        <p>&copy; 2026 FUNGI-PORK. Proyecto desarrollado por Roberto Carlos Hernández Rodríguez y equipo.</p>
+    </footer>
+
+</body>
+</html>
