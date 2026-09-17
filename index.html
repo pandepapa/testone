@@ -63,7 +63,7 @@
 
         .nav-links a:hover { color: var(--dorado-accent); }
 
-        /* HERO SECTION - REDISEÑADA PARA NO ENCIMAR TEXTO */
+        /* HERO SECTION */
         .hero {
             display: flex;
             align-items: center;
@@ -71,7 +71,7 @@
             min-height: 85vh;
             padding: 60px 10%;
             gap: 50px;
-            flex-wrap: wrap; /* Ajuste automático para móviles */
+            flex-wrap: wrap;
             background: linear-gradient(135deg, var(--blanco) 60%, var(--gris-claro) 100%);
         }
 
@@ -133,6 +133,8 @@
             border-radius: 8px;
             transition: 0.3s;
             display: inline-block;
+            border: none;
+            cursor: pointer;
         }
 
         .btn-outline {
@@ -192,11 +194,15 @@
             border-radius: 15px;
             text-align: center;
             border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .price-card.featured {
             border: 2px solid var(--dorado-accent);
             transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
         .price-card .amount {
@@ -214,10 +220,72 @@
             text-align: center;
         }
 
+        /* ESTILOS DEL CARRITO FLOTANTE */
+        #cart-container {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: var(--blanco);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: none;
+            width: 320px;
+            z-index: 2000;
+            border-top: 4px solid var(--dorado-accent);
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+
+        .remove-btn {
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Botón flotante para abrir el carrito */
+        #btn-floating-cart {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--verde-primario);
+            color: var(--dorado-accent);
+            padding: 15px 25px;
+            border-radius: 30px;
+            border: none;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            cursor: pointer;
+            z-index: 1999;
+            display: none;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+        #btn-floating-cart:hover {
+            transform: scale(1.05);
+        }
+
         @media (max-width: 768px) {
             .hero { text-align: center; padding-top: 40px; }
             .hero-text h1 { font-size: 2.2rem; }
             .cta-container { justify-content: center; flex-direction: column; }
+            .price-card.featured { transform: scale(1); }
         }
     </style>
 </head>
@@ -227,7 +295,7 @@
         <a href="#" class="logo-nav">FUNGI-PORK</a>
         <ul class="nav-links">
             <li><a href="#beneficios">Beneficios</a></li>
-            <li><a href="#precios">Precios</a></li>
+            <li><a href="#tienda">Tienda</a></li>
             <li><a href="#tecnologia">Tecnología</a></li>
         </ul>
     </nav>
@@ -242,7 +310,7 @@
             <h1>Innovación que <br>Alimenta el Futuro</h1>
             <p>Transformamos residuos agroindustriales en un pellet funcional de alta proteína para lechones, reduciendo costos operativos y mejorando la salud animal.</p>
             <div class="cta-container">
-                <a href="#precios" class="btn-main">Ver Tarifas 2026</a>
+                <a href="#tienda" class="btn-main">Comprar Ahora</a>
                 <a href="#tecnologia" class="btn-outline">Memoria Técnica</a>
             </div>
         </div>
@@ -266,27 +334,41 @@
         </div>
     </section>
 
-    <section id="precios" class="section pricing">
-        <h2 class="section-title">Comercialización Directa</h2>
+    <!-- SECCIÓN DE TIENDA ACTUALIZADA -->
+    <section id="tienda" class="section pricing">
+        <h2 class="section-title">Tienda Oficial FUNGI-PORK</h2>
         <div class="pricing-grid">
+            
             <div class="price-card">
-                <h4>Menudeo</h4>
-                <span class="amount">$1,300 <small>MXN</small></span>
-                <p>Saco de 20kg (Tarifa A)</p>
-                <p style="margin-top:15px; font-size:0.85rem; color:#666;">Ideal para pequeños productores familiares.</p>
+                <div>
+                    <h4>Iniciación</h4>
+                    <span class="amount">$350 <small>MXN</small></span>
+                    <p>Bolsa de 5 kg</p>
+                    <p style="margin-top:15px; font-size:0.85rem; color:#666;">Ideal para pruebas de transición y pequeños criadores.</p>
+                </div>
+                <button class="btn-main btn-add-cart" data-id="1" data-name="Bolsa FUNGI-PORK 5kg" data-price="350" style="margin-top: 20px; width: 100%;">Añadir al carrito</button>
             </div>
+
+            <div class="price-card">
+                <div>
+                    <h4>Crecimiento</h4>
+                    <span class="amount">$650 <small>MXN</small></span>
+                    <p>Bolsa de 10 kg</p>
+                    <p style="margin-top:15px; font-size:0.85rem; color:#666;">Excelente relación costo-beneficio para granjas medianas.</p>
+                </div>
+                <button class="btn-main btn-add-cart" data-id="2" data-name="Bolsa FUNGI-PORK 10kg" data-price="650" style="margin-top: 20px; width: 100%;">Añadir al carrito</button>
+            </div>
+
             <div class="price-card featured">
-                <h4>Mayoreo</h4>
-                <span class="amount">$1,160 <small>MXN</small></span>
-                <p>Desde 6 sacos (Tarifa B)</p>
-                <p style="margin-top:15px; font-size:0.85rem; color:#666;">Nuestra opción más vendida para granjas asociativas.</p>
+                <div>
+                    <h4>Productor</h4>
+                    <span class="amount">$1,160 <small>MXN</small></span>
+                    <p>Costal de 20 kg</p>
+                    <p style="margin-top:15px; font-size:0.85rem; color:#666;">Máximo ahorro. Nuestra presentación estándar para granjas industriales.</p>
+                </div>
+                <button class="btn-main btn-add-cart" data-id="3" data-name="Costal FUNGI-PORK 20kg" data-price="1160" style="margin-top: 20px; width: 100%;">Añadir al carrito</button>
             </div>
-            <div class="price-card">
-                <h4>Distribución</h4>
-                <span class="amount">$1,040 <small>MXN</small></span>
-                <p>Desde 12 sacos (Tarifa C)</p>
-                <p style="margin-top:15px; font-size:0.85rem; color:#666;">Para la red AGLP-09-87 y distribuidores.</p>
-            </div>
+
         </div>
     </section>
 
@@ -304,5 +386,125 @@
         <p>&copy; 2026 FUNGI-PORK. Proyecto desarrollado por Roberto Carlos Hernández Rodríguez y equipo.</p>
     </footer>
 
+    <!-- Botón Flotante para reabrir carrito -->
+    <button id="btn-floating-cart">🛒 Ver Carrito (0)</button>
+
+    <!-- Contenedor del Carrito de Compras -->
+    <div id="cart-container">
+        <h3 style="color: var(--verde-primario); margin-bottom: 15px; border-bottom: 2px solid var(--dorado-accent); padding-bottom: 10px;">Tu Pedido</h3>
+        <div id="cart-items" style="max-height: 200px; overflow-y: auto; margin-bottom: 15px;"></div>
+        
+        <div style="font-weight: bold; font-size: 1.2rem; margin-bottom: 15px; text-align: right;">
+            Total: $<span id="cart-total">0</span> MXN
+        </div>
+        
+        <button id="btn-checkout" class="btn-main" style="width: 100%; margin-bottom: 10px;">📲 Pedir por WhatsApp</button>
+        <button id="btn-close-cart" style="width: 100%; background: none; border: 1px solid #ccc; padding: 10px; border-radius: 8px; cursor: pointer;">Seguir comprando</button>
+    </div>
+
+    <!-- LÓGICA DE LA TIENDA (JAVASCRIPT) -->
+    <script>
+        let cart = [];
+        
+        // Elementos del DOM
+        const cartContainer = document.getElementById('cart-container');
+        const cartItems = document.getElementById('cart-items');
+        const cartTotal = document.getElementById('cart-total');
+        const btnFloatingCart = document.getElementById('btn-floating-cart');
+        
+        // Añadir productos al carrito
+        document.querySelectorAll('.btn-add-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                const product = {
+                    id: button.getAttribute('data-id'),
+                    name: button.getAttribute('data-name'),
+                    price: parseInt(button.getAttribute('data-price'))
+                };
+                
+                cart.push(product);
+                updateCart();
+                
+                // Efecto visual rápido en el botón
+                const originalText = button.innerText;
+                button.innerText = "¡Agregado! ✔";
+                button.style.backgroundColor = "#1B4332";
+                button.style.color = "#D4A017";
+                
+                setTimeout(() => {
+                    button.innerText = originalText;
+                    button.style.backgroundColor = "";
+                    button.style.color = "";
+                }, 1000);
+            });
+        });
+
+        // Actualizar la interfaz del carrito
+        function updateCart() {
+            cartItems.innerHTML = '';
+            let total = 0;
+            
+            cart.forEach((item, index) => {
+                total += item.price;
+                cartItems.innerHTML += `
+                    <div class="cart-item">
+                        <span>${item.name}</span>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <strong>$${item.price}</strong>
+                            <button class="remove-btn" onclick="removeItem(${index})" title="Quitar">×</button>
+                        </div>
+                    </div>`;
+            });
+            
+            cartTotal.innerText = total.toLocaleString();
+            btnFloatingCart.innerText = `🛒 Ver Carrito (${cart.length})`;
+            
+            // Mostrar carrito si hay items
+            if(cart.length > 0) {
+                cartContainer.style.display = 'block';
+                btnFloatingCart.style.display = 'block';
+            } else {
+                cartContainer.style.display = 'none';
+                btnFloatingCart.style.display = 'none';
+            }
+        }
+
+        // Remover un producto
+        window.removeItem = function(index) {
+            cart.splice(index, 1);
+            updateCart();
+        };
+
+        // Cerrar ventana del carrito (se queda el botón flotante)
+        document.getElementById('btn-close-cart').addEventListener('click', () => {
+            cartContainer.style.display = 'none';
+        });
+
+        // Abrir ventana del carrito desde el botón flotante
+        btnFloatingCart.addEventListener('click', () => {
+            cartContainer.style.display = 'block';
+        });
+
+        // Procesar compra y enviar por WhatsApp
+        document.getElementById('btn-checkout').addEventListener('click', () => {
+            if(cart.length === 0) return;
+            
+            let message = "¡Hola! Vengo de su página web y me interesa realizar el siguiente pedido de FUNGI-PORK:%0A%0A";
+            let total = 0;
+            
+            // Agrupar y listar productos
+            cart.forEach(item => {
+                message += `▪ ${item.name} - $${item.price} MXN%0A`;
+                total += item.price;
+            });
+            
+            message += `%0A*TOTAL DEL PEDIDO: $${total.toLocaleString()} MXN*%0A%0A¿Me podrían indicar los métodos de pago y opciones de envío, por favor?`;
+            
+            // TELÉFONO DEL PROYECTO (Cambia este número por tu WhatsApp real, incluyendo código de país 52 para México)
+            const phoneNumber = "524430000000"; 
+            
+            // Abrir WhatsApp en una nueva pestaña
+            window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+        });
+    </script>
 </body>
 </html>
