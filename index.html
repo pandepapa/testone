@@ -267,11 +267,11 @@
             display: inline-block;
             background: rgba(27, 67, 50, 0.08);
             color: var(--verde-primario);
-            padding: 4px 12px;
+            padding: 6px 16px;
             border-radius: 12px;
             font-size: 0.8rem;
             font-weight: bold;
-            margin-top: 10px;
+            margin-top: 15px;
             text-transform: uppercase;
         }
 
@@ -420,7 +420,7 @@
         </div>
 
         <div class="pilot-container">
-            <!-- Tarjeta con el producto único (asociada al formulario) -->
+            <!-- Tarjeta con el producto único -->
             <div class="product-card">
                 <div>
                     <h3 style="color: var(--verde-primario); font-size: 1.4rem; margin-bottom: 10px;">Pellet funcional para lechones en destete</h3>
@@ -432,12 +432,11 @@
                     </p>
                 </div>
                 <div>
-                    <button type="button" class="btn-main" onclick="focusFormulario()" style="width: 100%; margin: 15px 0 10px;">Registrar mi Granja</button>
                     <span class="validation-tag">Sujeto a validación</span>
                 </div>
             </div>
 
-            <!-- Formulario de registro conectado silenciosamente a Google Forms -->
+            <!-- Formulario de registro conectado a Google Forms -->
             <div class="interest-form-card">
                 <h3 style="color: var(--verde-primario); margin-bottom: 8px;">Mantente informado</h3>
                 <p style="font-size: 0.88rem; color: #666; margin-bottom: 20px;">Déjanos tus datos institucionales o de granja para notificarte en cuanto concluya la etapa de validación.</p>
@@ -491,14 +490,7 @@
     </footer>
 
     <script>
-        // Función para enfocar el formulario desde la tarjeta
-        function focusFormulario() {
-            const inputNombre = document.getElementById('nombre');
-            inputNombre.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            inputNombre.focus();
-        }
-
-        // Envío a Google Forms
+        // Envío silencioso a Google Forms
         let submittedFungi = false;
         function showFungiSuccess() {
             document.getElementById('formSuccess').style.display = 'block';
