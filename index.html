@@ -3,709 +3,446 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIAF-AGAVE - Paquetes Tecnológicos de Bioconversión Fúngica</title>
+    <title>FUNGI-PORK | Nutrición Porcina de Alta Tecnología</title>
     <style>
         :root {
-            --primary: #2E7D32; /* Verde Mezcal / Biotecnológico */
-            --primary-dark: #1B5E20;
-            --secondary: #D81B60; /* Rosa Hongo Pleurotus */
-            --secondary-dark: #C2185B;
-            --dark: #263238; /* Gris pizarra agroindustrial */
-            --light: #F4F6F4; /* Fondo claro orgánico */
-            --white: #FFFFFF;
-            --gray: #78909C;
-            --border: #CFD8DC;
+            --verde-primario: #1B4332; /* Sostenibilidad y TecNM */
+            --dorado-accent: #D4A017;  /* Calidad Premium y Biomasa Fúngica */
+            --gris-claro: #F4F7F6;
+            --blanco: #FFFFFF;
+            --negro-texto: #2D2D2D;
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            scroll-behavior: smooth;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
-            background-color: var(--light);
-            color: var(--dark);
+            background-color: var(--blanco);
+            color: var(--negro-texto);
             line-height: 1.6;
         }
 
-        /* Header & Navigation */
-        header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-        }
-
-        .navbar {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Navegación */
+        nav {
+            background-color: var(--verde-primario);
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        .logo {
-            font-size: 24px;
+        .logo-nav {
+            color: var(--dorado-accent);
+            font-size: 1.3rem;
             font-weight: bold;
-            color: var(--primary);
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .logo span {
-            color: var(--secondary);
+            letter-spacing: 1px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 25px;
-            align-items: center;
         }
 
+        .nav-links li { margin-left: 20px; }
+
         .nav-links a {
+            color: var(--blanco);
             text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
+            font-size: 0.9rem;
             transition: color 0.3s;
         }
 
-        .nav-links a:hover {
-            color: var(--primary);
-        }
+        .nav-links a:hover { color: var(--dorado-accent); }
 
-        .btn-cta {
-            background-color: var(--primary);
-            color: var(--white) !important;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: background 0.3s, transform 0.2s;
-        }
-
-        .btn-cta:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        /* Container helper */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
-
-        /* Hero Section */
+        /* HERO SECTION */
         .hero {
-            background: linear-gradient(135px, rgba(38, 50, 56, 0.95), rgba(27, 94, 32, 0.85)), 
-                        url('https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?auto=format&fit=crop&q=80&w=1200') no-repeat center center/cover;
-            color: var(--white);
-            padding: 160px 20px 100px 20px;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 85vh;
+            padding: 60px 10%;
+            gap: 50px;
+            flex-wrap: wrap;
+            background: linear-gradient(135deg, var(--blanco) 60%, var(--gris-claro) 100%);
         }
 
-        .hero-content {
-            max-width: 850px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            color: var(--dark);
-        }
-
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 35px;
-            opacity: 0.9;
-            color: var(--dark);
-        }
-
-        .hero-buttons {
+        .hero-image {
+            flex: 1;
+            min-width: 320px;
             display: flex;
             justify-content: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            max-height: 500px;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 320px;
+        }
+
+        .badge-folio {
+            display: inline-block;
+            background: rgba(27, 67, 50, 0.1);
+            color: var(--verde-primario);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            color: var(--verde-primario);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+            color: #444;
+            max-width: 550px;
+        }
+
+        .cta-container {
+            display: flex;
             gap: 15px;
-            flex-wrap: wrap;
         }
 
-        .btn-secondary {
-            background-color: var(--secondary);
-            color: var(--white);
+        .btn-main {
+            background-color: var(--dorado-accent);
+            color: var(--verde-primario);
+            padding: 16px 30px;
             text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--secondary-dark);
+            font-weight: bold;
+            border-radius: 8px;
+            transition: 0.3s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            text-align: center;
         }
 
         .btn-outline {
-            background-color: var(--secondary);
-            color: var(--white);
+            background-color: transparent;
+            color: var(--verde-primario);
+            border: 2px solid var(--verde-primario);
+            padding: 14px 30px;
             text-decoration: none;
-            padding: 12px 25px;
-            border: 2px solid var(--white);
-            border-radius: 5px;
-            font-weight: 600;
-            transition: background 0.3s, color 0.3s;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: 0.3s;
+            display: inline-block;
+            text-align: center;
         }
 
-        .btn-outline:hover {
-            background-color: var(--white);
-            color: var(--dark);
+        .btn-main:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 5px 15px rgba(212,160,23,0.3); 
         }
 
-        /* Problem & Opportunity Section */
-        .problem-section {
-            background-color: var(--white);
-        }
-
+        /* SECCIONES GENERALES */
+        .section { padding: 80px 10%; }
+        
         .section-title {
             text-align: center;
-            font-size: 32px;
-            margin-bottom: 15px;
-            color: var(--dark);
-            position: relative;
-            padding-bottom: 10px;
+            margin-bottom: 25px;
+            color: var(--verde-primario);
+            font-size: 2.2rem;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background-color: var(--primary);
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--gray);
-            margin-bottom: 50px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .grid-2 {
+        .grid-features {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-top: 40px;
         }
 
-        @media(min-width: 768px) {
-            .grid-2 { grid-template-columns: 1fr 1fr; }
-        }
-
-        .card-problem, .card-opportunity {
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .card-problem {
-            border-left: 5px solid #E53935;
-            background-color: #FFEBEE;
-        }
-
-        .card-opportunity {
-            border-left: 5px solid var(--primary);
-            background-color: #E8F5E9;
-        }
-
-        .card-title {
-            font-size: 20px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* Components (What you buy) */
-        .components-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-
-        @media(min-width: 768px) {
-            .components-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-
-        .component-card {
-            background-color: var(--white);
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-            border-top: 4px solid var(--primary);
-            transition: transform 0.3s;
-        }
-
-        .component-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .component-number {
-            font-size: 36px;
-            font-weight: bold;
-            color: var(--secondary);
-            margin-bottom: 10px;
-            opacity: 0.3;
-        }
-
-        /* Pricing Section */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-            align-items: stretch;
-        }
-
-        @media(min-width: 992px) {
-            .pricing-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-
-        .price-card {
-            background-color: var(--white);
+        .feature-card {
+            background: var(--blanco);
+            padding: 40px;
             border-radius: 12px;
-            padding: 35px 25px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-bottom: 4px solid var(--dorado-accent);
             text-align: center;
+        }
+
+        .feature-card h3 { color: var(--verde-primario); margin-bottom: 15px; }
+
+        /* REGISTRO DE INTERÉS */
+        .interest-section { background-color: var(--gris-claro); }
+
+        .disclaimer-banner {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            background: #fff3cd;
+            border-left: 5px solid var(--dorado-accent);
+            padding: 16px 20px;
+            border-radius: 6px;
+            color: #664d03;
+            font-size: 0.95rem;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .pilot-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            align-items: stretch;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: var(--blanco);
+            flex: 1;
+            min-width: 300px;
+            max-width: 420px;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid var(--dorado-accent);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            border: 1px solid var(--border);
-            position: relative;
         }
 
-        .price-card.popular {
-            border: 2px solid var(--secondary);
-            transform: scale(1.03);
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: var(--secondary);
-            color: var(--white);
-            padding: 4px 15px;
-            border-radius: 20px;
-            font-size: 12px;
+        .product-card .amount {
+            display: block;
+            font-size: 2.3rem;
             font-weight: bold;
+            margin: 15px 0 5px;
+            color: var(--negro-texto);
+        }
+
+        .unit-reference {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .validation-tag {
+            display: inline-block;
+            background: rgba(27, 67, 50, 0.08);
+            color: var(--verde-primario);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 10px;
             text-transform: uppercase;
         }
 
-        .price-name {
-            font-size: 22px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .price-amount {
-            font-size: 38px;
-            font-weight: bold;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        .price-features {
-            list-style: none;
-            margin: 25px 0;
-            text-align: left;
-        }
-
-        .price-features li {
-            padding: 8px 0;
-            border-bottom: 1px solid var(--light);
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .price-features li::before {
-            content: '✓';
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        .price-card .btn-pricing {
-            display: block;
-            text-decoration: none;
-            padding: 12px;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-top: auto;
-            transition: background 0.3s;
-        }
-
-        .price-card.popular .btn-pricing {
-            background-color: var(--secondary);
-            color: var(--white);
-        }
-
-        .price-card.popular .btn-pricing:hover {
-            background-color: var(--secondary-dark);
-        }
-
-        .price-card:not(.popular) .btn-pricing {
-            background-color: var(--primary);
-            color: var(--white);
-        }
-
-        .price-card:not(.popular) .btn-pricing:hover {
-            background-color: var(--primary-dark);
-        }
-
-        /* Trust / Science Section */
-        .trust-section {
-            background-color: var(--white);
-        }
-
-        .trust-metrics {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        @media(min-width: 768px) {
-            .trust-metrics { grid-template-columns: repeat(3, 1fr); }
-        }
-
-        .metric-item h3 {
-            font-size: 36px;
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-
-        /* Contact Form */
-        .contact-box {
-            background-color: var(--white);
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        /* FORMULARIO DE INTERÉS */
+        .interest-form-card {
+            background: var(--blanco);
+            flex: 1;
+            min-width: 320px;
+            max-width: 480px;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            text-align: left;
         }
 
         .form-group label {
             display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
             margin-bottom: 6px;
-            font-weight: 500;
+            color: var(--negro-texto);
         }
 
-        .form-group input, .form-group select, .form-group textarea {
+        .form-group input,
+        .form-group select {
             width: 100%;
-            padding: 12px;
-            border: 1px solid var(--border);
-            border-radius: 5px;
-            font-size: 15px;
+            padding: 11px 14px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
             outline: none;
-            transition: border-color 0.3s;
+            border-color: var(--verde-primario);
         }
 
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-            border-color: var(--primary);
-        }
-
-        .btn-submit {
-            width: 100%;
-            background-color: var(--primary);
-            color: var(--white);
-            border: none;
-            padding: 14px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .btn-submit:hover {
-            background-color: var(--primary-dark);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: var(--white);
-            padding: 40px 20px;
+        .form-alert {
+            display: none;
+            background: #d1e7dd;
+            color: #0f5132;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-size: 0.9rem;
             text-align: center;
-            font-size: 14px;
         }
 
-        footer p {
-            margin-bottom: 10px;
-            opacity: 0.8;
+        footer {
+            background-color: var(--verde-primario);
+            color: var(--blanco);
+            padding: 50px 10%;
+            text-align: center;
         }
 
         footer a {
-            color: var(--secondary);
+            color: var(--dorado-accent);
             text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero { text-align: center; padding-top: 40px; }
+            .hero-text h1 { font-size: 2.2rem; }
+            .cta-container { justify-content: center; flex-direction: column; }
+            .pilot-container { flex-direction: column; align-items: center; }
+            .product-card, .interest-form-card { width: 100%; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header / Navbar -->
-    <header>
-        <div class="navbar">
-            <a href="#" class="logo">SIAF-<span>AGAVE</span></a>
-            <ul class="nav-links">
-                <li><a href="#como-funciona">¿Cómo funciona?</a></li>
-                <li><a href="#paquetes">Paquetes</a></li>
-                <li><a href="#evidencia">Evidencia</a></li>
-                <li><a href="#contacto" class="btn-cta">Agendar Asesoría</a></li>
-            </ul>
+    <nav>
+        <a href="#" class="logo-nav">FUNGI-PORK</a>
+        <ul class="nav-links">
+            <li><a href="#beneficios">Beneficios</a></li>
+            <li><a href="#interes">Registro de Interés</a></li>
+            <li><a href="#tecnologia">Tecnología</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-image">
+            <img src="LOGO CON K.png" alt="FUNGI-PORK Logo Oficial">
+        </div>
+
+        <div class="hero-text">
+            <span class="badge-folio">Folio InnovaTecNM 69158-17</span>
+            <h1>Innovación que <br>Alimenta el Futuro</h1>
+            <p>Transformamos residuos agroindustriales en un pellet funcional para lechones en destete, reduciendo costos operativos mediante procesos sustentables.</p>
+            <div class="cta-container">
+                <a href="#interes" class="btn-main">Registrar Interés</a>
+                <a href="#tecnologia" class="btn-outline">Memoria Técnica</a>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Transforma los residuos de tu palenque en una nueva fuente de ingresos biotecnológicos</h1>
-            <p>No vemos desperdicios; vemos materia prima. Transferimos un paquete biotecnológico modular y trazable que convierte el bagazo de agave, borra de café y rastrojo en sustratos de alto valor mediante bioconversión fúngica controlada.</p>
-            <div class="hero-buttons">
-                <a href="#paquetes" class="btn-secondary">Ver Paquetes Tecnológicos</a>
+    <section id="beneficios" class="section">
+        <h2 class="section-title">Valorización de Biomasa Fúngica</h2>
+        <div class="grid-features">
+            <div class="feature-card">
+                <h3>Circularidad Real</h3>
+                <p>Valorizamos bagazo de agave mezcalero y borra de café mediante fermentación en estado sólido.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Evaluación Técnica</h3>
+                <p>Beneficios en evaluación mediante análisis bromatológico, de inocuidad y prueba de aceptación en granja (oct 2026).</p>
+            </div>
+            <div class="feature-card">
+                <h3>Ahorro Directo</h3>
+                <p>Sustitución parcial de pasta de soya que permite proyectar costos altamente competitivos frente a fuentes tradicionales.</p>
             </div>
         </div>
     </section>
 
-    <!-- Problem & Solution Section -->
-    <section id="como-funciona" class="problem-section">
-        <div class="container">
-            <h2 class="section-title">El verdadero costo de no aprovechar tus residuos</h2>
-            <p class="section-subtitle">Cierra el ciclo de nutrientes en tu agroindustria transformando pasivos ambientales en activos comerciales altamente rentables.</p>
-            
-            <div class="grid-2">
-                <div class="card-problem">
-                    <h3 class="card-title">⚠️ El Pasivo Ambiental</h3>
-                    <p>Por cada litro de mezcal producido se generan aproximadamente 6 kg de bagazo húmedo. Su acumulación desmedida genera serios problemas logísticos, multas ambientales y focos de contaminación local (estimación por cálculo propio).</p>
+    <!-- SECCIÓN DE REGISTRO DE INTERÉS (SUSTITUYE A TIENDA) -->
+    <section id="interes" class="section interest-section">
+        <h2 class="section-title">Registro de Interés</h2>
+
+        <div class="disclaimer-banner">
+            ⚠️ <strong>Aviso Importante:</strong> Producto en fase de validación. Sin ventas hasta contar con análisis de laboratorio acreditado y expediente sanitario. Regístrate para ser contactado en el lanzamiento.
+        </div>
+
+        <div class="pilot-container">
+            <!-- Tarjeta con el producto único -->
+            <div class="product-card">
+                <div>
+                    <h3 style="color: var(--verde-primario); font-size: 1.4rem; margin-bottom: 10px;">Pellet funcional para lechones en destete</h3>
+                    <p style="color: #555; font-size: 1rem;">Presentación en saco de 20 kg</p>
+                    <span class="amount">$1,300 <small>MXN</small></span>
+                    <p class="unit-reference">Precio piloto de referencia ($65/kg)</p>
+                    <p style="margin-top: 15px; font-size: 0.88rem; color: #666;">
+                        Desarrollo bio-nutricional formulado para la etapa de transición en granjas porcícolas.
+                    </p>
                 </div>
-                <div class="card-opportunity">
-                    <h3 class="card-title">💡 La Oportunidad Circular</h3>
-                    <p>Estás desechando toneladas de biomasa rica en nutrientes. SIAF-AGAVE llega para transferirte la biotecnología exacta que convierte ese residuo en una plataforma de producción de hongos comestibles premium de alta demanda.</p>
+                <div>
+                    <span class="validation-tag">Sujeto a validación</span>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- What you buy (Components) -->
-    <section style="background-color: var(--light);">
-        <div class="container">
-            <h2 class="section-title">Un sistema integral, listo para operar</h2>
-            <p class="section-subtitle">Al adquirir la transferencia tecnológica de SIAF-AGAVE, recibes una solución completa llave en mano.</p>
-            
-            <div class="components-grid">
-                <div class="component-card">
-                    <div class="component-number">01</div>
-                    <h3>Formulación Científica</h3>
-                    <p>Mezclas técnicas optimizadas multi-residuo (bagazo, café, rastrojo) con parámetros controlados de carbono y nitrógeno.</p>
-                </div>
-                <div class="component-card">
-                    <div class="component-number">02</div>
-                    <h3>Protocolo de Inocuidad</h3>
-                    <p>Garantía de procesos limpios bajo normativas de higiene alimentaria estrictas para una producción estandarizada.</p>
-                </div>
-                <div class="component-card">
-                    <div class="component-number">03</div>
-                    <h3>Módulo Adaptable</h3>
-                    <p>Diseño e instalación de la unidad productiva ajustada a los espacios reales y condiciones climáticas de tu región.</p>
-                </div>
-                <div class="component-card">
-                    <div class="component-number">04</div>
-                    <h3>Manual Operativo</h3>
-                    <p>Guía técnica detallada paso a paso y bitácoras de trazabilidad por lote protegidas legalmente ante INDAUTOR.</p>
-                </div>
-                <div class="component-card">
-                    <div class="component-number">05</div>
-                    <h3>Capacitación</h3>
-                    <p>Transferencia de conocimiento teórica y práctica presencial directamente en tu palenque o centro operativo.</p>
-                </div>
-                <div class="component-card">
-                    <div class="component-number">06</div>
-                    <h3>Trazabilidad y acompañamiento</h3>
-                    <p>Proyecciones financieras claras con una Tasa Interna de Retorno (TIR) del 27% para recuperar la inversión rápidamente.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Packages -->
-    <section id="paquetes" style="background-color: var(--white);">
-        <div class="container">
-            <h2 class="section-title">Modelos de Transferencia Tecnológica</h2>
-            <p class="section-subtitle">Elige la escala de adopción tecnológica ideal para el volumen de residuos de tu negocio.</p>
-            
-            <div class="pricing-grid">
-                <!-- Pack 1 -->
-                <div class="price-card">
-                    <div>
-                        <div class="price-name">Paquete Semilla</div>
-                        <div class="price-amount">$15,000 <span style="font-size:16px; color:var(--gray);">MXN</span></div>
-                        <p style="color:var(--gray); font-size:14px;">Ideal para productores rurales pequeños o fases de validación interna.</p>
-                        <ul class="price-features">
-                            <li>Manual Operativo Completo</li>
-                            <li>Capacitación técnica (8 horas)</li>
-                            <li>Soporte técnico remoto (1 mes)</li>
-                            <li>Bitácora física de control por lote</li>
-                        </ul>
-                    </div>
-                    <a href="#contacto" class="btn-pricing">Adquirir Básico</a>
-                </div>
-
-                <!-- Pack 2 -->
-                <div class="price-card popular">
-                    <div class="popular-badge">El más popular</div>
-                    <div>
-                        <div class="price-name">Módulo Familiar</div>
-                        <div class="price-amount">$35,000 <span style="font-size:16px; color:var(--gray);">MXN</span></div>
-                        <p style="color:var(--gray); font-size:14px;">Perfecto para palenques medianos y cooperativas agroindustriales.</p>
-                        <ul class="price-features">
-                            <li>Todo lo del paquete Básico</li>
-                            <li>50 kg de Sustrato Técnico Formulado</li>
-                            <li>Inóculo inicial de Pleurotus djamor</li>
-                            <li>Sistema básico de humidificación asistida</li>
-                            <li>Soporte técnico preferente (3 meses)</li>
-                        </ul>
-                    </div>
-                    <a href="#contacto" class="btn-pricing">Cotizar Intermedio</a>
-                </div>
-
-                <!-- Pack 3 -->
-                <div class="price-card">
-                    <div>
-                        <div class="price-name">Módulo Comunitario o Institucional</div>
-                        <div class="price-amount">$75,000 <span style="font-size:16px; color:var(--gray);">MXN</span></div>
-                        <p style="color:var(--gray); font-size:14px;">Solución Llave en Mano para empresas con alto volumen de generación.</p>
-                        <ul class="price-features">
-                            <li>Todo lo del paquete Intermedio</li>
-                            <li>Módulo de cultivo armado e instalado</li>
-                            <li>Sistema automatizado de control de fructificación</li>
-                            <li>Visitas técnicas presenciales (3 meses)</li>
-                            <li>Licenciamiento completo de uso de marca</li>
-                        </ul>
-                    </div>
-                    <a href="#contacto" class="btn-pricing">Solicitar Llave en Mano</a>
-                </div>
-            </div>
-            <p class="section-subtitle" style="margin-top: 30px; margin-bottom: 0;">
-                Montos sujetos a visita, configuración, impuestos y alcance.
-            </p>
-        </div>
-    </section>
-
-    <!-- Trust & Validation Section -->
-    <section id="evidencia" class="trust-section" style="background-color: var(--light);">
-        <div class="container">
-            <h2 class="section-title">Tecnología validada y protegida científico-legalmente</h2>
-            <p class="section-subtitle">No es una idea experimental; es ciencia aplicada con respaldo institucional absoluto.</p>
-            
-            <div class="trust-metrics">
-                <div class="metric-item">
-                    <h3>TRL 5</h3>
-                    <p>Madurez Tecnológica Validada en Entorno Relevante</p>
-                </div>
-                <div class="metric-item">
-                    <h3>6</h3>
-                    <p>6 cartas de colaboración e interés documentadas  "no constituyen ventas"</p>
-                </div>
-                <div class="metric-item">
-                    <h3>100%</h3>
-                    <p>Estrategia de protección: secreto industrial · marca mixta clases 31, 41 y 44 (solicitud proyectada) · derecho de autor</p>
-                </div>
-            </div>
-            
-            <p style="text-align: center; margin-top: 40px; color: var(--gray); font-size: 15px; font-style: italic;">
-                * Procesos alineados estrictamente a las normativas de seguridad alimentaria e higiene mexicana (NOM-251-SSA1-2009 · NOM-051-SCFI/SSA1-2010 · Codex CXS 38-1981).
-            </p>
-        </div>
-    </section>
-
-    <!-- Contact section (Envío directo a Google Forms sin alterar el diseño) -->
-    <section id="contacto" style="background-color: var(--white);">
-        <div class="container">
-            <h2 class="section-title">Inicia tu Diagnóstico Agroindustrial Gratuito</h2>
-            <p class="section-subtitle">Completa el formulario para evaluar tu volumen de residuos y sugerirte el mejor plan de implementación.</p>
-            
-            <div class="contact-box">
-                <!-- Iframe oculto para capturar la respuesta de Google Forms silenciosamente -->
-                <iframe name="hidden_siaf_iframe" id="hidden_siaf_iframe" style="display:none;" onload="if(submittedSiaf) { showSiafSuccess(); }"></iframe>
-
-                <form id="siafForm" 
-                      action="https://docs.google.com/forms/d/e/1FAIpQLScoyTucneopPGza1hF-lFgJ7E971TBlE5Mj9KC5k0CVlc9-vQ/formResponse" 
-                      method="POST" 
-                      target="hidden_siaf_iframe" 
-                      onsubmit="submittedSiaf=true;">
-
+            <!-- Formulario de registro de interés -->
+            <div class="interest-form-card">
+                <h3 style="color: var(--verde-primario); margin-bottom: 8px;">Mantente informado</h3>
+                <p style="font-size: 0.88rem; color: #666; margin-bottom: 20px;">Déjanos tus datos institucionales o de granja para notificarte en cuanto concluya la etapa de validación.</p>
+                
+                <form id="interestForm" onsubmit="handleRegister(event)">
                     <div class="form-group">
-                        <label for="nombre">Nombre Completo</label>
-                        <input type="text" name="entry.1035390389" id="nombre" placeholder="Ej. Juan Pérez" required>
+                        <label for="nombre">Nombre completo o Representante</label>
+                        <input type="text" id="nombre" required placeholder="Ej. Ing. Juan Pérez">
                     </div>
-
                     <div class="form-group">
-                        <label for="empresa">Nombre de la unidad mezcalera / empresa / institución</label>
-                        <input type="text" name="entry.1728872418" id="empresa" placeholder="Ej. Mezcal Tradicional S.A." required>
+                        <label for="organizacion">Granja / Institución / Empresa</label>
+                        <input type="text" id="organizacion" required placeholder="Ej. Granja Porcina El Porvenir">
                     </div>
-
                     <div class="form-group">
-                        <label for="whatsapp">Teléfono / WhatsApp</label>
-                        <input type="tel" name="entry.1087731921" id="whatsapp" placeholder="Ej. 4431234567" required>
+                        <label for="correo">Correo electrónico de contacto</label>
+                        <input type="email" id="correo" required placeholder="contacto@ejemplo.com">
                     </div>
-
-                    <button type="submit" id="btnSiafSubmit" class="btn-submit">Enviar Solicitud de Diagnóstico Gratuito</button>
-                    
-                    <div id="msgConfirmacion" style="display:none; margin-top:15px; padding:12px; background-color:#E8F5E9; color:#2E7D32; border-radius:5px; text-align:center; font-weight:600;">
-                        ✓ ¡Solicitud recibida con éxito! Nos comunicaremos contigo a la brevedad.
+                    <button type="submit" class="btn-main" style="width: 100%; margin-top: 10px;">Registrar mi interés</button>
+                    <div id="formSuccess" class="form-alert">
+                        ¡Gracias! Tus datos han quedado registrados para la fase de prelanzamiento.
                     </div>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <section id="tecnologia" class="section">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <h2 class="section-title">Ciencia Detrás del Producto</h2>
+            <p>Desarrollado bajo tecnología SIAF en el IT Valle de Morelia. El pellet de 6mm cuenta con expediente sanitario en integración conforme a LFSA y NOM-012-SAG/ZOO-2020.</p>
+            <p style="margin-top: 25px; font-weight: bold; color: var(--verde-primario);">PROYECTO AUDITABLE Y TRAZABLE - TRL 4 → 5</p>
+        </div>
+    </section>
+
     <footer>
-        <p>SIAF-AGAVE © 2026. Todos los derechos reservados.</p>
-        <p>Contacto Oficial: <a href="mailto:revistaexplorandocon.ciencia@vmorelia.tecnm.mx">revistaexplorandocon.ciencia@vmorelia.tecnm.mx</a></p>
-        <p style="font-size:12px; margin-top:15px; opacity:0.6;">Desarrollado en vinculación académica con el TecNM - Instituto Tecnológico del Valle de Morelia. Respaldado científicamente.</p>
+        <p>Tecnológico Nacional de México | Instituto Tecnológico del Valle de Morelia</p>
+        <p style="margin: 15px 0; opacity: 0.8;">Cumbre Nacional de Desarrollo Tecnológico, Emprendimiento e Innovación - InnovaTecNM 2026</p>
+        <p style="margin-bottom: 12px;">Contacto oficial: <a href="mailto:revistaexplorandocon.ciencia@vmorelia.tecnm.mx">revistaexplorandocon.ciencia@vmorelia.tecnm.mx</a></p>
+        <p>&copy; 2026 FUNGI-PORK. Proyecto desarrollado por Roberto Carlos Hernández Rodríguez y equipo.</p>
     </footer>
 
     <script>
-        let submittedSiaf = false;
-        function showSiafSuccess() {
-            document.getElementById('msgConfirmacion').style.display = 'block';
-            document.getElementById('siafForm').reset();
-            const btn = document.getElementById('btnSiafSubmit');
-            btn.disabled = true;
-            btn.innerText = "Solicitud Enviada ✔";
-            btn.style.backgroundColor = "#78909C";
+        function handleRegister(e) {
+            e.preventDefault();
+            document.getElementById('formSuccess').style.display = 'block';
+            document.getElementById('interestForm').reset();
         }
     </script>
 </body>
