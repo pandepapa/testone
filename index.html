@@ -26,7 +26,31 @@
             line-height: 1.6;
         }
 
-        /* Navegación */
+        /* BARRA INSTITUCIONAL DE LOGOS (SUPERIOR) */
+        .institutional-bar {
+            background-color: var(--blanco);
+            padding: 12px 5%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-bottom: 1px solid #e0e0e0;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .institutional-bar img {
+            height: 60px;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            transition: transform 0.2s;
+        }
+
+        .institutional-bar img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Navegación (DEBAJO DE LOS LOGOS) */
         nav {
             background-color: var(--verde-primario);
             padding: 1rem 5%;
@@ -62,30 +86,6 @@
         }
 
         .nav-links a:hover { color: var(--dorado-accent); }
-
-        /* BARRA INSTITUCIONAL DE LOGOS */
-        .institutional-bar {
-            background-color: var(--blanco);
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            border-bottom: 1px solid #e0e0e0;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .institutional-bar img {
-            height: 60px;
-            width: auto;
-            max-width: 100%;
-            object-fit: contain;
-            transition: transform 0.2s;
-        }
-
-        .institutional-bar img:hover {
-            transform: scale(1.05);
-        }
 
         /* HERO SECTION */
         .hero {
@@ -358,6 +358,14 @@
 </head>
 <body>
 
+    <!-- 1. BARRA INSTITUCIONAL DE LOGOS (AHORA PRIMERO) -->
+    <div class="institutional-bar">
+        <img src="tecnm.png" alt="TecNM Logo">
+        <img src="itvm.png" alt="ITVM Logo">
+        <img src="innova.png" alt="InnovaTecNM 2026 Logo">
+    </div>
+
+    <!-- 2. NAVEGACIÓN PRINCIPAL (AHORA DEBAJO DE LOS LOGOS) -->
     <nav>
         <a href="#" class="logo-nav">FUNGI-PORK</a>
         <ul class="nav-links">
@@ -367,13 +375,7 @@
         </ul>
     </nav>
 
-    <!-- BARRA INSTITUCIONAL DE LOGOS -->
-    <div class="institutional-bar">
-        <img src="tecnm.png" alt="TecNM Logo">
-        <img src="ITVM.png" alt="ITVM Logo">
-        <img src="innova.png" alt="InnovaTecNM 2026 Logo">
-    </div>
-
+    <!-- 3. SECCIÓN HERO -->
     <header class="hero">
         <div class="hero-image">
             <img src="LOGO CON K.png" alt="FUNGI-PORK Logo Oficial">
