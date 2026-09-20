@@ -63,6 +63,30 @@
 
         .nav-links a:hover { color: var(--dorado-accent); }
 
+        /* BARRA INSTITUCIONAL DE LOGOS */
+        .institutional-bar {
+            background-color: var(--blanco);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-bottom: 1px solid #e0e0e0;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .institutional-bar img {
+            height: 60px;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            transition: transform 0.2s;
+        }
+
+        .institutional-bar img:hover {
+            transform: scale(1.05);
+        }
+
         /* HERO SECTION */
         .hero {
             display: flex;
@@ -275,8 +299,7 @@
             color: var(--negro-texto);
         }
 
-        .form-group input,
-        .form-group select {
+        .form-group input {
             width: 100%;
             padding: 11px 14px;
             border: 1px solid #ccc;
@@ -284,8 +307,7 @@
             font-size: 0.95rem;
         }
 
-        .form-group input:focus,
-        .form-group select:focus {
+        .form-group input:focus {
             outline: none;
             border-color: var(--verde-primario);
         }
@@ -319,6 +341,13 @@
         }
 
         @media (max-width: 768px) {
+            .institutional-bar {
+                gap: 15px;
+                padding: 10px 3%;
+            }
+            .institutional-bar img {
+                height: 45px;
+            }
             .hero { text-align: center; padding-top: 40px; }
             .hero-text h1 { font-size: 2.2rem; }
             .cta-container { justify-content: center; flex-direction: column; }
@@ -337,6 +366,13 @@
             <li><a href="#tecnologia">Tecnología</a></li>
         </ul>
     </nav>
+
+    <!-- BARRA INSTITUCIONAL DE LOGOS -->
+    <div class="institutional-bar">
+        <img src="17-178726_tecnologico-nacional-de-mexico-logo-png-transparent-png.png" alt="TecNM Logo">
+        <img src="ITVM logo.jpg" alt="ITVM Logo">
+        <img src="innova.png" alt="InnovaTecNM 2026 Logo">
+    </div>
 
     <header class="hero">
         <div class="hero-image">
@@ -372,7 +408,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE REGISTRO DE INTERÉS (SUSTITUYE A TIENDA) -->
+    <!-- SECCIÓN DE REGISTRO DE INTERÉS -->
     <section id="interes" class="section interest-section">
         <h2 class="section-title">Registro de Interés</h2>
 
@@ -396,25 +432,37 @@
                     <span class="validation-tag">Sujeto a validación</span>
                 </div>
             </div>
-            <!-- Formulario de registro de interés -->
+
+            <!-- Formulario de registro conectado silenciosamente a Google Forms -->
             <div class="interest-form-card">
                 <h3 style="color: var(--verde-primario); margin-bottom: 8px;">Mantente informado</h3>
                 <p style="font-size: 0.88rem; color: #666; margin-bottom: 20px;">Déjanos tus datos institucionales o de granja para notificarte en cuanto concluya la etapa de validación.</p>
                 
-                <form id="interestForm" onsubmit="handleRegister(event)">
+                <iframe name="hidden_fungi_iframe" id="hidden_fungi_iframe" style="display:none;" onload="if(submittedFungi) { showFungiSuccess(); }"></iframe>
+
+                <form id="fungiForm" 
+                      action="https://docs.google.com/forms/d/e/1FAIpQLScoyTucneopPGza1hF-lFgJ7E971TBlE5Mj9KC5k0CVlc9-vQ/formResponse" 
+                      method="POST" 
+                      target="hidden_fungi_iframe" 
+                      onsubmit="submittedFungi=true;">
+
                     <div class="form-group">
                         <label for="nombre">Nombre completo o Representante</label>
-                        <input type="text" id="nombre" required placeholder="Ej. Ing. Juan Pérez">
+                        <input type="text" name="entry.1035390389" id="nombre" required placeholder="Ej. Ing. Juan Pérez">
                     </div>
+
                     <div class="form-group">
                         <label for="organizacion">Granja / Institución / Empresa</label>
-                        <input type="text" id="organizacion" required placeholder="Ej. Granja Porcina El Porvenir">
+                        <input type="text" name="entry.1728872418" id="organizacion" required placeholder="Ej. Granja Porcina El Porvenir">
                     </div>
+
                     <div class="form-group">
-                        <label for="correo">Correo electrónico de contacto</label>
-                        <input type="email" id="correo" required placeholder="contacto@ejemplo.com">
+                        <label for="telefono">Teléfono / WhatsApp de contacto</label>
+                        <input type="tel" name="entry.1087731921" id="telefono" required placeholder="Ej. 4431234567">
                     </div>
-                    <button type="submit" class="btn-main" style="width: 100%; margin-top: 10px;">Registrar mi interés</button>
+
+                    <button type="submit" id="btnFungiSubmit" class="btn-main" style="width: 100%; margin-top: 10px;">Registrar mi interés</button>
+
                     <div id="formSuccess" class="form-alert">
                         ¡Gracias! Tus datos han quedado registrados para la fase de prelanzamiento.
                     </div>
@@ -439,10 +487,14 @@
     </footer>
 
     <script>
-        function handleRegister(e) {
-            e.preventDefault();
+        let submittedFungi = false;
+        function showFungiSuccess() {
             document.getElementById('formSuccess').style.display = 'block';
-            document.getElementById('interestForm').reset();
+            document.getElementById('fungiForm').reset();
+            const btn = document.getElementById('btnFungiSubmit');
+            btn.disabled = true;
+            btn.innerText = "Interés Registrado ✔";
+            btn.style.opacity = "0.7";
         }
     </script>
 </body>
