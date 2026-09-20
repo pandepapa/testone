@@ -24,6 +24,7 @@
             background-color: var(--blanco);
             color: var(--negro-texto);
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
         /* BARRA INSTITUCIONAL DE LOGOS (SUPERIOR) */
@@ -358,14 +359,14 @@
 </head>
 <body>
 
-    <!-- 1. BARRA INSTITUCIONAL DE LOGOS (AHORA PRIMERO) -->
+    <!-- 1. BARRA INSTITUCIONAL DE LOGOS -->
     <div class="institutional-bar">
         <img src="tecnm.png" alt="TecNM Logo">
         <img src="itvm.png" alt="ITVM Logo">
         <img src="innova.png" alt="InnovaTecNM 2026 Logo">
     </div>
 
-    <!-- 2. NAVEGACIÓN PRINCIPAL (AHORA DEBAJO DE LOS LOGOS) -->
+    <!-- 2. NAVEGACIÓN PRINCIPAL -->
     <nav>
         <a href="#" class="logo-nav">FUNGI-PORK</a>
         <ul class="nav-links">
@@ -419,7 +420,7 @@
         </div>
 
         <div class="pilot-container">
-            <!-- Tarjeta con el producto único -->
+            <!-- Tarjeta con el producto único (asociada al formulario) -->
             <div class="product-card">
                 <div>
                     <h3 style="color: var(--verde-primario); font-size: 1.4rem; margin-bottom: 10px;">Pellet funcional para lechones en destete</h3>
@@ -431,6 +432,7 @@
                     </p>
                 </div>
                 <div>
+                    <button type="button" class="btn-main" onclick="focusFormulario()" style="width: 100%; margin: 15px 0 10px;">Registrar mi Granja</button>
                     <span class="validation-tag">Sujeto a validación</span>
                 </div>
             </div>
@@ -489,6 +491,14 @@
     </footer>
 
     <script>
+        // Función para enfocar el formulario desde la tarjeta
+        function focusFormulario() {
+            const inputNombre = document.getElementById('nombre');
+            inputNombre.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            inputNombre.focus();
+        }
+
+        // Envío a Google Forms
         let submittedFungi = false;
         function showFungiSuccess() {
             document.getElementById('formSuccess').style.display = 'block';
